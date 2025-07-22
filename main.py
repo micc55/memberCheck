@@ -5,6 +5,7 @@ from datetime import datetime
 import streamlit as st
 import pandas as pd
 import datetime # 日付（本日）取得のため
+import platform
 
 # 定数：スプレッドシートIDとシート名
 JOIN_SHEET_ID = "1hEJwSJ3PRuoA3xIk9mrfBKHr0t4tAkVoCkAR78-5RS4"
@@ -34,7 +35,7 @@ def attendcheck(day=None):
 
     # 日付の指定がなければ今日にする（yyyy/M/d 形式）
     if day is None:
-        target = datetime.now().strftime("%Y/%#m/%#d")
+        target = datetime.now().strftime("%Y/%-m/%-d")
     else:
         target = day
 
@@ -46,7 +47,7 @@ def attendcheck(day=None):
 st.subheader("参加者確認")
 d = st.date_input("確認日", datetime.date.today())
 # checkDay = d.strftime("%Y/") + str(d.month) + "/" + str(d.day)
-checkDay = d.strftime("%Y/%#m/%#d")
+checkDay = d.strftime("%Y/%-m/%-d")
 
 data = attendcheck(checkDay)
 # print(data)
