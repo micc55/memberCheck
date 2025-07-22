@@ -1,3 +1,4 @@
 # セキュリティ上、秘密鍵をGitに含めない
 credentials/service_account.json
 *.json
+.streamilit/secrets.toml

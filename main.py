@@ -11,13 +11,17 @@ JOIN_SHEET_ID = "1hEJwSJ3PRuoA3xIk9mrfBKHr0t4tAkVoCkAR78-5RS4"
 SHEET_NAME = "フォームの回答"
 
 # JSONファイルの絶対パスを設定
-KEY_PATH = os.path.join(os.path.dirname(__file__),"credentials", "service_account.json")
+# KEY_PATH = os.path.join(os.path.dirname(__file__),"credentials", "service_account.json")
 
 # 必要なスコープ（ここではGoogle Sheets）
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 # 認証情報の作成
-creds = Credentials.from_service_account_file(KEY_PATH, scopes=SCOPES)
+# creds = Credentials.from_service_account_file(KEY_PATH, scopes=SCOPES)
+creds = Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+    scopes=SCOPES
+)
 
 gc = gspread.authorize(creds)
 
