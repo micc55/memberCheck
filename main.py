@@ -5,10 +5,9 @@ from datetime import datetime
 import streamlit as st
 import pandas as pd
 import datetime # 日付（本日）取得のため
-import platform
 
 # 定数：スプレッドシートIDとシート名
-JOIN_SHEET_ID = "1hEJwSJ3PRuoA3xIk9mrfBKHr0t4tAkVoCkAR78-5RS4"
+JOIN_SHEET_ID = st.secrets["general"]["JOIN_SHEET_ID"]
 SHEET_NAME = "フォームの回答"
 
 # JSONファイルの絶対パスを設定
